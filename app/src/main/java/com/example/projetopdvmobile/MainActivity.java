@@ -6,10 +6,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.projetopdvmobile.View.CadastroClienteActivity;
-import com.example.projetopdvmobile.View.CadastroItemVendaActivity;
+import com.example.projetopdvmobile.View.CadastroItemActivity;
 import com.example.projetopdvmobile.View.CadastroPedidoActivity;
 import com.example.projetopdvmobile.View.GerenciadorPedidosActivity;
-import com.example.projetopdvmobile.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button btCadastroCliente;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 abrirActivity(CadastroClienteActivity.class); } });
         btCadastroItem.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
-                abrirActivity(CadastroItemVendaActivity.class);
+                abrirActivity(CadastroItemActivity.class);
             } });
         btCadastroPedido.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {

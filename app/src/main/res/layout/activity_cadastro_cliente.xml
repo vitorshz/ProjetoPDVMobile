@@ -73,5 +73,18 @@
             android:background="@drawable/round_corner"
             android:backgroundTint="@color/gray50"/>
 
+        <Button
+            android:id="@+id/btCadastrarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:gravity="center"
+            android:text="Cadastrar Cliente"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="#4CAF50"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 </LinearLayout>

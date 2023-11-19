@@ -6,11 +6,12 @@ import android.os.Bundle;
 
 import com.example.projetopdvmobile.R;
 
-public class CadastroItemVendaActivity extends AppCompatActivity {
+public class CadastroItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_item_venda);
+        setTitle("Cadastro de Produto");
     }
 }

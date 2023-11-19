@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ProjetoPDVMobile"
         tools:targetApi="31">
         <activity
-            android:name=".View.CadastroItemVendaActivity"
+            android:name=".View.CadastroItemActivity"
             android:exported="false" />
         <activity
             android:name=".View.CadastroPedidoActivity"
