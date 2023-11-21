@@ -1,11 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center_horizontal"
+    android:background="@color/purple200">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        >
+
+        <Button
+            android:id="@+id/btCadastroCliente"
+            android:layout_width="140dp"
+            android:layout_height="180dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Cadastrar Cliente"
+            android:background="@drawable/rounded_button"
+            app:backgroundTint="@color/gray100"
+            android:textColor="@color/blue100"
+            android:drawableTint="@color/blue100"
+            android:drawableTop="@drawable/ic_add_person"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btCadastroItem"
+            android:layout_width="140dp"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_button"
+            android:drawableTint="@color/blue100"
+            android:gravity="center"
+            android:drawableTop="@drawable/ic_add_item_main_activity_icon"
+            android:text="Cadastrar Item"
+            android:textColor="@color/blue100"
+            android:textSize="20sp"
+            app:backgroundTint="@color/gray100"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/btCadastroPedido"
+            android:gravity="center"
+            android:layout_width="140dp"
+            android:layout_height="180dp"
+            android:text="Cadastrar Pedido"
+            android:textSize="20sp"
+            android:drawableTop="@drawable/ic_add_card_shop_main_activity_icon"
+            app:backgroundTint="@color/gray100"
+            android:textColor="@color/blue100"
+            android:background="@drawable/rounded_button"
+      android:backgroundTint="@color/gray100"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/btPesquisarPedido"
+            android:gravity="center"
+            android:layout_width="140dp"
+            android:layout_height="180dp"
+            android:text="Pesquisar Pedido"
+            android:textSize="20sp"
+            android:drawableTop="@drawable/ic_search_card_shop_main_activity_icon"
+            app:backgroundTint="@color/gray100"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/blue100"
+
+            android:drawableTint="@color/blue100"/>
+
+    </LinearLayout>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

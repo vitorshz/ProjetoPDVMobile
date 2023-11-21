@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProjetoPDVMobile"
         tools:targetApi="31">
         <activity
+            android:name=".View.CadastroItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CadastroPedidoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.GerenciadorPedidosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GerenciadorPedidos"
+            android:exported="false" />
+        <activity
             android:name=".View.CadastroClienteActivity"
             android:exported="false" />
         <activity

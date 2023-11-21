@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.ProjetoPDVMobile" parent="Base.Theme.ProjetoPDVMobile" />
+    <style name="Button.White" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
 </resources>

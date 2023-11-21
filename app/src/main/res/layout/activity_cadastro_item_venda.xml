@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.CadastroClienteActivity">
-
+    tools:context=".View.CadastroItemActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,11 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:text="Nome"
+            android:text="Descrição do Produto"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edNomeCliente"
+            android:id="@+id/edDescProduto"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
@@ -32,11 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:text="CPF"
+            android:text="Valor de Compra"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edCPFCliente"
+            android:id="@+id/edValorCompra"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
@@ -47,11 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:text="Telefone"
+            android:text="Valor de venda"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edTelefoneCliente"
+            android:id="@+id/edValorVenda"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
@@ -62,11 +61,26 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:text="Email"
+            android:text="Quantidade de estoque"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edEmailCliente"
+            android:id="@+id/edQtdEstq"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_corner"
+            android:backgroundTint="@color/gray50"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Código de Barra"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edCodBarra"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
@@ -74,12 +88,12 @@
             android:backgroundTint="@color/gray50"/>
 
         <Button
-            android:id="@+id/btCadastrarCliente"
+            android:id="@+id/btCadastrarProduto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:gravity="center"
-            android:text="Cadastrar Cliente"
+            android:text="Cadastrar Produto"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:backgroundTint="#4CAF50"
