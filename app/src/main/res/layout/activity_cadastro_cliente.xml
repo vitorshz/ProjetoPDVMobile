@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".View.CadastroClienteActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -92,4 +95,6 @@
             android:id="@+id/rvClientes"
             />
     </LinearLayout>
+    
+    </ScrollView>
 </LinearLayout>
