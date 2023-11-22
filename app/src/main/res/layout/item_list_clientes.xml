@@ -22,9 +22,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:id="@+id/tvNomeCliente"/>
-
+                android:id="@+id/tvCpf"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:id="@+id/tvNome"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:id="@+id/tvEmail"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:id="@+id/tvTelefone"/>
             <ImageButton
+                android:id="@+id/btAddCliente"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/rounded_button"
