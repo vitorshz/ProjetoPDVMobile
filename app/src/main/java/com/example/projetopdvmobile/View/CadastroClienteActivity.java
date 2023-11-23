@@ -62,7 +62,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         GerarId gerar = new GerarId();
         int idgerado = gerar.gerarProximoId();
 
-
         String retorno = controller.salvarCliente(idgerado,edCPFCliente.getText().toString(),
                 edNomeCliente.getText().toString(),
                 edEmailCliente.getText().toString(),
@@ -77,11 +76,11 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 edNomeCliente.setError(retorno);
                 edNomeCliente.requestFocus();
             }
-            if(retorno.contains("tel")){
+            if(retorno.contains("TELEFONE")){
                 edTelefoneCliente.setError(retorno);
                 edTelefoneCliente.requestFocus();
             }
-            if(retorno.contains("ema")){
+            if(retorno.contains("EMAIL")){
                 edEmailCliente.setError(retorno);
                 edEmailCliente.requestFocus();
             }
@@ -100,7 +99,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         ClienteListAdapter adapter = new ClienteListAdapter(listaClientes, this);
         rvClientes.setLayoutManager(new LinearLayoutManager(this));
         rvClientes.setAdapter(adapter);
-        
 
     }
 }

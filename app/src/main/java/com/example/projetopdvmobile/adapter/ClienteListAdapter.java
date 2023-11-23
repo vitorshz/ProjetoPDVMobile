@@ -60,6 +60,7 @@ public class ClienteListAdapter extends
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Cliente clienteSelecionado = listaClientes.get(position);
+
         holder.tvCpf.setText(String.valueOf(clienteSelecionado.getCpf()));
         holder.tvNome.setText(clienteSelecionado.getNome());
         holder.tvTelefone.setText(clienteSelecionado.getTelefone());
