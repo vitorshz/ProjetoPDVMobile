@@ -62,6 +62,5 @@ public class ClienteController {
     public ArrayList<Cliente> retornarTodosClientes(){
         return ClienteDAO.getInstancia(context).getAll();
 
-
     }
 }

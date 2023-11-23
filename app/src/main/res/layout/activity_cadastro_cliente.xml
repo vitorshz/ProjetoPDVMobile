@@ -9,92 +9,94 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="20dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Nome"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edNomeCliente"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_corner"
-            android:backgroundTint="@color/gray50"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:text="CPF"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edCPFCliente"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_corner"
-            android:backgroundTint="@color/gray50"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Telefone"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edTelefoneCliente"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_corner"
-            android:backgroundTint="@color/gray50"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Email"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/edEmailCliente"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_corner"
-            android:backgroundTint="@color/gray50"/>
-
-        <Button
-            android:id="@+id/btCadastrarCliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:gravity="center"
-            android:text="Cadastrar Cliente"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:backgroundTint="#4CAF50"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"/>
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rvClientes"
-            />
-    </LinearLayout>
-    
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Nome"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edNomeCliente"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner"
+                android:backgroundTint="@color/gray50" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="CPF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edCPFCliente"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner"
+                android:backgroundTint="@color/gray50" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Telefone"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edTelefoneCliente"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner"
+                android:backgroundTint="@color/gray50" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Email"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edEmailCliente"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_corner"
+                android:backgroundTint="@color/gray50" />
+
+            <Button
+                android:id="@+id/btCadastrarCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_button"
+                android:gravity="center"
+                android:text="Cadastrar Cliente"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:backgroundTint="#4CAF50" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvClientes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
     </ScrollView>
 </LinearLayout>
