@@ -16,6 +16,7 @@ import com.example.projetopdvmobile.model.Cliente;
 import com.example.projetopdvmobile.model.Item;
 import com.example.projetopdvmobile.model.Pedido;
 
+import java.util.Collection;
 import java.util.Date;
 
 public class PedidoDao implements IGenericDao<Pedido>  {
@@ -179,7 +180,7 @@ public class PedidoDao implements IGenericDao<Pedido>  {
             ContentValues valores = new ContentValues();
 
             valores.put("PEDIDO_ID", pedido.getNumPedido());
-            valores.put("COD_PRODUTO", item.getCod_produto());
+            valores.put("ID", item.getCod_produto());
             valores.put("QTD_EST", item.getQtd_est());
             valores.put("DESCRICAO", item.getDescricao());
             valores.put("VL_COMPRA", item.getVl_compra());
@@ -187,6 +188,41 @@ public class PedidoDao implements IGenericDao<Pedido>  {
 
             baseDados.insert("ITEM", null, valores);
         }
+    }
+
+    public Collection<String> buscarSugestoesDoBancoDeDados() {
+        Collection<String> sugestoes = new ArrayList<>();
+
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+
+        try {
+            db = openHelper.getReadableDatabase();
+
+            String query = "SELECT DESCRICAO FROM ITEM;";
+            cursor = db.rawQuery(query, null);
+
+            if (cursor.moveToFirst()) {
+                do {
+
+                    String nomeProduto = cursor.getString(2);
+                    sugestoes.add(nomeProduto);
+                } while (cursor.moveToNext());
+            }
+
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "Erro ao buscar sugestões do banco de dados: " + ex.getMessage());
+        } finally {
+            // Certifique-se de fechar o cursor e o banco de dados para evitar vazamento de recursos
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
+
+        return sugestoes;
     }
 
 }

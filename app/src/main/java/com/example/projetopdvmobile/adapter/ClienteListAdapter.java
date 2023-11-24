@@ -21,6 +21,7 @@ public class ClienteListAdapter extends
     private ArrayList<Cliente> listaClientes;
     private Context context;
 
+
     /**
      * Construtor da classe
      *

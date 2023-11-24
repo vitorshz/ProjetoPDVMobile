@@ -44,20 +44,7 @@
                 android:layout_weight="3"
                 android:id="@+id/tvDataPedido"/>
 
-            <ImageButton
-                android:id="@+id/btEdit"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_button"
-                android:gravity="center"
-                app:backgroundTint="#4CAF50"
-                android:src="@drawable/ic_edit"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
-                />
+
             <ImageButton
                 android:id="@+id/btExcluir"
                 android:layout_width="40dp"
