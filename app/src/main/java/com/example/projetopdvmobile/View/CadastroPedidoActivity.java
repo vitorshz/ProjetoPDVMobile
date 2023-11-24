@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.example.projetopdvmobile.R;
 import com.example.projetopdvmobile.adapter.ClienteListAdapter;
 import com.example.projetopdvmobile.controller.ClienteController;
+import com.example.projetopdvmobile.controller.ItemController;
 import com.example.projetopdvmobile.model.Cliente;
 
 import java.util.ArrayList;
