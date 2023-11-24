@@ -84,7 +84,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
                     colunas[0]+"= ?", identificador);
 
         }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: AlunoDao.update() "+ex.getMessage());
+            Log.e("UNIPAR", "ERRO: ClienteDao.update() "+ex.getMessage());
         }
         return 0;
     }
@@ -97,7 +97,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
             return baseDados.delete(tabela,
                     colunas[0]+"= ?", identificador);
         }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: AlunoDao.delete() "+ex.getMessage());
+            Log.e("UNIPAR", "ERRO: ClienteDao.delete() "+ex.getMessage());
         }
         return 0;
     }
@@ -152,7 +152,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
             }
 
         }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: AlunoDao.getById() "+ex.getMessage());
+            Log.e("UNIPAR", "ERRO: ClienteDao.getById() "+ex.getMessage());
         }
         return null;
     }

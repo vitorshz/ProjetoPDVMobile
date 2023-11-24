@@ -9,7 +9,6 @@ public class Item {
 
     public Item() {
     }
-
     public Item(int id, int cod_prodotu, int qtd_est, String descricao, double vl_compra, double vl_venda) {
         this.id = id;
         this.cod_prodotu = cod_prodotu;

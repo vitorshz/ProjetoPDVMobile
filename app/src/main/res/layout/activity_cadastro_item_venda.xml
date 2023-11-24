@@ -105,6 +105,11 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItems"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
              </LinearLayout>
         </ScrollView>
 
