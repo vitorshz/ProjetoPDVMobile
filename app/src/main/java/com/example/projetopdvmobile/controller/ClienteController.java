@@ -17,7 +17,9 @@ public class ClienteController {
 
     public String salvarCliente(int id,String cpf, String nome, String email, String telefone){
         try{
-
+            if(id==0 || id==(id-1)){
+                return "Informe o ID do Cliente!";
+            }
             if(cpf.equals("") || cpf.isEmpty()){
                 return "Informe o Cpf do Cliente!";
             }
@@ -32,7 +34,7 @@ public class ClienteController {
             }
 
             Cliente cliente = ClienteDAO.getInstancia(context)
-                    .getById(id);
+                    .getById(Integer.parseInt(cpf));
 
             if(cliente != null){
                 return "O cpf ("+cpf+") já está cadastrado!";

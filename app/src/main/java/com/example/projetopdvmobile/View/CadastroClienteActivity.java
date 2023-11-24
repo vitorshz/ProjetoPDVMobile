@@ -68,6 +68,11 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 edTelefoneCliente.getText().toString());
 
         if(retorno != null){
+            if(retorno.contains("ID")){
+                edCPFCliente.setError(retorno);
+                edCPFCliente.requestFocus();
+            }
+
             if(retorno.contains("CPF")){
                 edCPFCliente.setError(retorno);
                 edCPFCliente.requestFocus();
