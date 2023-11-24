@@ -1,9 +1,11 @@
 package com.example.projetopdvmobile.controller;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.example.projetopdvmobile.dao.PedidoDao;
 import com.example.projetopdvmobile.model.Cliente;
+import com.example.projetopdvmobile.model.Item;
 import com.example.projetopdvmobile.model.Pedido;
 
 import java.util.ArrayList;
@@ -17,32 +19,27 @@ public class PedidoController {
         this.context = context;
     }
 
-    public String salvarPedido(int numPedido, Date dataCriacao, Cliente cliente) {
+    public void salvarPedido(String descricaoPedido, Date dataCriacao, double vlTotal, Cliente cliente, ArrayList<Item> listaProdutos) {
         try {
-            if (numPedido <= 0) {
-                return "Informe um número de pedido válido!";
-            }
+            // Criar um novo pedido
+            Pedido pedido = new Pedido();
+            pedido.setDescricaopedido(descricaoPedido);
+            pedido.setDataCriacao(dataCriacao);
+            pedido.setVlTotal(vlTotal);
+            pedido.setCliente(cliente);
+            pedido.setListaProdutos(listaProdutos);
 
-            // Verifica se o número do pedido já está cadastrado
-            Pedido pedidoExistente = PedidoDao.getInstancia(context).getById(numPedido);
-            if (pedidoExistente != null) {
-                return "O número do pedido já está cadastrado!";
-            }
+            // Salvar o pedido no banco de dados
+            long resultado = PedidoDao.getInstancia(context).insert(pedido);
 
-            // Cria um novo pedido
-            Pedido novoPedido = new Pedido(numPedido, dataCriacao, cliente);
-
-            // Insere o pedido no banco de dados
-            long resultado = PedidoDao.getInstancia(context).insert(novoPedido);
-
-            if (resultado != -1) {
-                return null; // Sucesso
+            if (resultado > 0) {
+                Toast.makeText(context, "Pedido salvo com sucesso", Toast.LENGTH_SHORT).show();
             } else {
-                return "Erro ao salvar o pedido!";
+                Toast.makeText(context, "Erro ao salvar o pedido", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            return "Erro ao salvar o pedido.";
+            Toast.makeText(context, "Erro ao salvar o pedido", Toast.LENGTH_SHORT).show();
         }
     }
 

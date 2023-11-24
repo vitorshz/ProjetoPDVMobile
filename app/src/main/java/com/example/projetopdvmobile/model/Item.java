@@ -2,14 +2,15 @@ package com.example.projetopdvmobile.model;
 
 public class Item {
 
-    private int  cod_produto, qtd_est;
+    private int id, cod_produto, qtd_est;
     private String descricao;
     private double vl_compra, vl_venda;
 
     public Item() {
     }
-    public Item( int cod_produto, int qtd_est, String descricao, double vl_compra, double vl_venda) {
 
+    public Item(int id, int cod_produto, int qtd_est, String descricao, double vl_compra, double vl_venda) {
+        this.id = id;
         this.cod_produto = cod_produto;
         this.qtd_est = qtd_est;
         this.descricao = descricao;
@@ -17,7 +18,13 @@ public class Item {
         this.vl_venda = vl_venda;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCod_produto() {
         return cod_produto;

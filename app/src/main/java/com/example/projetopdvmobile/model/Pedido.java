@@ -4,13 +4,30 @@ import java.util.Date;
 
 public class Pedido {
 
+    private int numPedido;
     private String descricaopedido;
     private Date dataCriacao;
     private double vlTotal ;
     private Cliente cliente;
     private ArrayList<Item>  listaProdutos;
 
+    public Pedido(int numPedido, String descricaopedido, Date dataCriacao, double vlTotal, Cliente cliente, ArrayList<Item> listaProdutos) {
+        this.numPedido = numPedido;
+        this.descricaopedido = descricaopedido;
+        this.dataCriacao = dataCriacao;
+        this.vlTotal = vlTotal;
+        this.cliente = cliente;
+        this.listaProdutos = listaProdutos;
+    }
+    public Pedido(){}
 
+    public int getNumPedido() {
+        return numPedido;
+    }
+
+    public void setNumPedido(int numPedido) {
+        this.numPedido = numPedido;
+    }
 
     public String getDescricaopedido() {
         return descricaopedido;
@@ -52,13 +69,6 @@ public class Pedido {
         this.listaProdutos = listaProdutos;
     }
 
-    public Pedido( String descricaopedido, Date dataCriacao, double vlTotal, Cliente cliente, ArrayList<Item> listaProdutos) {
 
-        this.descricaopedido = descricaopedido;
-        this.dataCriacao = dataCriacao;
-        this.vlTotal = vlTotal;
-        this.cliente = cliente;
-        this.listaProdutos = listaProdutos;
-    }
-    public Pedido(){}
+
 }

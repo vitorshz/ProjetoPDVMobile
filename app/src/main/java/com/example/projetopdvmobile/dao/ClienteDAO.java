@@ -113,7 +113,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
             if(cursor.moveToFirst()){
                 do{
                     Cliente cliente = new Cliente();
-
+                    cliente.setId(cursor.getInt(0));
                     cliente.setCpf(cursor.getString(1));
                     cliente.setNome(cursor.getString(2));
                     cliente.setEmail(cursor.getString(3));
@@ -141,7 +141,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
 
             if(cursor.moveToFirst()){
                 Cliente cliente = new Cliente();
-
+                cliente.setId(cursor.getInt(0));
                 cliente.setCpf(cursor.getString(1));
                 cliente.setNome(cursor.getString(2));
                 cliente.setEmail(cursor.getString(3));
@@ -166,7 +166,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
             try {
                 if (cursor != null && cursor.moveToFirst()) {
                     Cliente cliente = new Cliente();
-
+                    cliente.setId(cursor.getInt(0));
                     cliente.setCpf(cursor.getString(1));
                     cliente.setNome(cursor.getString(2));
                     cliente.setEmail(cursor.getString(3));

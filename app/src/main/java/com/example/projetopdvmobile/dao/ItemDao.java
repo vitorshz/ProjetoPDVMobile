@@ -118,7 +118,7 @@ public class ItemDao  implements IGenericDao<Item> {
             if (cursor.moveToFirst()) {
                 do {
                     Item item = new Item();
-
+                    item.setCod_produto(cursor.getInt(0));
                     item.setCod_produto(cursor.getInt(1));
                     item.setQtd_est(cursor.getInt(2));
                     item.setDescricao(cursor.getString(3));
@@ -147,7 +147,7 @@ public class ItemDao  implements IGenericDao<Item> {
             Cursor cursor = baseDados.query(tabela, colunas, colunas[0] + "= ?", identificador, null, null, null);
             if (cursor.moveToFirst()) {
                 Item item = new Item();
-
+                item.setCod_produto(cursor.getInt(0));
                 item.setCod_produto(cursor.getInt(1));
                 item.setQtd_est(cursor.getInt(2));
                 item.setDescricao(cursor.getString(3));
