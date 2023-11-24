@@ -23,7 +23,7 @@ public class ItemDao  implements IGenericDao<Item> {
     //Base de Dados
     private SQLiteDatabase baseDados;
 
-    private String[]colunas = {"ID", "COD_PRODOTU" , "QTD_EST", "DESCRICAO", "VL_COMPRA", "VL_VENDA"};
+    private String[]colunas = {"ID", "COD_PRODUTO" , "QTD_EST", "DESCRICAO", "VL_COMPRA", "VL_VENDA"};
 
 
     private String tabela = "ITEM";
@@ -55,40 +55,40 @@ public class ItemDao  implements IGenericDao<Item> {
     }
 
     public long insert(Item obj) {
-        try{
+        try {
             ContentValues valores = new ContentValues();
 
-            valores.put(colunas[1], obj.getCod_prodotu());
+            valores.put(colunas[1], obj.getCod_produto());
             valores.put(colunas[2], obj.getQtd_est());
             valores.put(colunas[3], obj.getDescricao());
             valores.put(colunas[4], obj.getVl_compra());
             valores.put(colunas[5], obj.getVl_venda());
-                
-            return baseDados.insert(tabela, null, valores);
 
+            long result = baseDados.insert(tabela, null, valores);
 
-        }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: ItemDao.insert() "+ex.getMessage());
+            // Adicionando a atualização da lista após a inserção bem-sucedida
+            if (result != -1) {
+                return result;
+            } else {
+                Log.e("UNIPAR", "ERRO: ItemDao.insert() - Falha ao inserir o item");
+            }
+
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: ItemDao.insert() " + ex.getMessage());
         }
         return 0;
     }
 
     @Override
     public long update(Item obj) {
-
-        try{
+        try {
             ContentValues valores = new ContentValues();
-            valores.put(colunas[1], obj.getId());
-
-            String[]indentificador = {String.valueOf(obj.getCod_prodotu())};
-
-            return  baseDados.update(tabela, valores,
-                    colunas[0]+ "= ?", indentificador);
-
-        }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: ItemDao.udapte()"+ex.getMessage());
+            valores.put(colunas[1], obj.getCod_produto()); // Corrigido para getCod_produto
+            String[] identificador = {String.valueOf(obj.getId())};
+            return baseDados.update(tabela, valores, colunas[0] + "= ?", identificador);
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: ItemDao.update()" + ex.getMessage());
         }
-
         return 0;
     }
 
@@ -112,65 +112,53 @@ public class ItemDao  implements IGenericDao<Item> {
     @Override
     public ArrayList<Item> getAll() {
         ArrayList<Item> lista = new ArrayList<>();
-        try{
-
-            Cursor cursor = baseDados.query(tabela,
-                    colunas, null,
-                    null, null,
-                    null, colunas[0]);
-            if(cursor.moveToFirst()){
-                do{
+        Cursor cursor = null;
+        try {
+            cursor = baseDados.query(tabela, colunas, null, null, null, null, colunas[0]);
+            if (cursor.moveToFirst()) {
+                do {
                     Item item = new Item();
                     item.setId(cursor.getInt(0));
-                    item.setCod_prodotu(cursor.getInt(1));
+                    item.setCod_produto(cursor.getInt(1));
                     item.setQtd_est(cursor.getInt(2));
                     item.setDescricao(cursor.getString(3));
                     item.setVl_compra(cursor.getInt(4));
                     item.setVl_venda(cursor.getInt(5));
 
                     lista.add(item);
-
-                }while (cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
-
-        }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: ItemDao.getAll()"+ex.getMessage());
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: ItemDao.getAll()" + ex.getMessage());
+        } finally {
+            // Feche o cursor para evitar vazamento de recursos
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
         }
-
-
-        return null;
+        return lista;
     }
+
 
     @Override
     public Item getById(int id) {
-
-
-        try{
-            String[] indetificador = {String.valueOf(id)};
-
-            Cursor cursor = baseDados.query(tabela, colunas, colunas[0]+"= ?",
-                    indetificador, null, null, null);
-
-            if(cursor.moveToFirst()){
-                Item item  = new Item();
+        try {
+            String[] identificador = {String.valueOf(id)};
+            Cursor cursor = baseDados.query(tabela, colunas, colunas[0] + "= ?", identificador, null, null, null);
+            if (cursor.moveToFirst()) {
+                Item item = new Item();
                 item.setId(cursor.getInt(0));
-                item.setCod_prodotu(cursor.getInt(1));
+                item.setCod_produto(cursor.getInt(1));
                 item.setQtd_est(cursor.getInt(2));
                 item.setDescricao(cursor.getString(3));
                 item.setVl_compra(cursor.getInt(4));
                 item.setVl_venda(cursor.getInt(5));
-
-                return  item;
-
+                return item;
             }
-
-
-        }catch (SQLException ex){
-            Log.e("UNIPAR", "ERRO: ItemDao.getById()"+ex.getMessage());
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: ItemDao.getById()" + ex.getMessage());
         }
         return null;
-
-
     }
 
 

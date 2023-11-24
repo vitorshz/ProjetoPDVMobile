@@ -59,50 +59,49 @@ public class CadastroItemActivity extends AppCompatActivity {
                 salvarDados();
             }
         });
-
+        atualizarListaItem();
 
     }
-    private void salvarDados(){
+    private void salvarDados() {
+        try {
 
-        String retorno = controller.salvarItem(
-                edDescProduto.getText().toString(),
-                Integer.parseInt(edQtdEstq.getText().toString()),
-                Integer.parseInt(edCodBarra.getText().toString()),
-                Double.parseDouble(edValorCompra.getText().toString()),
-                Double.parseDouble(edValorVenda.getText().toString()));
+            String retorno = controller.salvarItem(
+                    Integer.parseInt(edCodBarra.getText().toString()),
+                    Integer.parseInt(edQtdEstq.getText().toString()),
+                    edDescProduto.getText().toString(),
+                    Double.parseDouble(edValorCompra.getText().toString()),
+                    Double.parseDouble(edValorVenda.getText().toString()));
 
-
-        if(retorno != null){
-
-            if(retorno.contains("COD_PRODOTU")){
-                edCodBarra.setError(retorno);
-                edCodBarra.requestFocus();
+            if (retorno != null) {
+                if (retorno.contains("DESCRICAO")) {
+                    edDescProduto.setError(retorno);
+                    edDescProduto.requestFocus();
+                }
+                if (retorno.contains("VL_COMPRA")) {
+                    edValorCompra.setError(retorno);
+                    edValorCompra.requestFocus();
+                }
+                if (retorno.contains("VL_VENDA")) {
+                    edValorVenda.setError(retorno);
+                    edValorVenda.requestFocus();
+                }
+                if (retorno.contains("QTD_EST")) {
+                    edQtdEstq.setError(retorno);
+                    edQtdEstq.requestFocus();
+                }
+                if (retorno.contains("COD_PRODUTO")) {
+                    edCodBarra.setError(retorno);
+                    edCodBarra.requestFocus();
+                }
+            } else {
+                Toast.makeText(this, "Item salvo com sucesso!", Toast.LENGTH_LONG).show();
+                atualizarListaItem();
             }
-            if(retorno.contains("DESCRICAO")){
-                edDescProduto.setError(retorno);
-                edDescProduto.requestFocus();
-            }
-            if(retorno.contains("QTD_EST")){
-                edQtdEstq.setError(retorno);
-                edQtdEstq.requestFocus();
-            }
-            if(retorno.contains("VL_COMPRA")){
-                edValorCompra.setError(retorno);
-                edValorCompra.requestFocus();
-            }
-            if(retorno.contains("VL_VENDA")){
-                edValorVenda.setError(retorno);
-                edValorVenda.requestFocus();
-            }
-
-        }else{
-            Toast.makeText(this,
-                    "Item salvo com sucesso!",
-                    Toast.LENGTH_LONG).show();
-
-            atualizarListaItem();
+        } catch (NumberFormatException e) {
+            // Tratar exceção de formato numérico inválido
+            e.printStackTrace();
+            Toast.makeText(this, "Formato numérico inválido", Toast.LENGTH_SHORT).show();
         }
-
     }
     private void atualizarListaItem() {
         ArrayList<Item> listaItem = controller.retornarTodosItens();

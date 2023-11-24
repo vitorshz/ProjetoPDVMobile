@@ -16,7 +16,7 @@ public class ItemController {
         this.context = context;
     }
 
-    public String salvarItem(String descricao, int cod_produto, int qtd_est, double vl_compra, double vl_venda) {
+    public String salvarItem(int cod_produto, int qtd_est,String descricao, double vl_compra, double vl_venda) {
         try {
 
             if (cod_produto <= 0) {
@@ -35,13 +35,13 @@ public class ItemController {
                 return "Informe um valor de venda válido para o item!";
             }
 
-            Item item = ItemDao.getInstancia(context).getById(cod_produto);
+            Item item = ItemDao.getInstancia(context).getById((int) cod_produto);
 
             if (item != null) {
                 return "O código do produto (" + cod_produto + ") já está cadastrado!";
             } else {
                 item = new Item();
-                item.setCod_prodotu(cod_produto);
+                item.setCod_produto((int) cod_produto);
                 item.setQtd_est(qtd_est);
                 item.setDescricao(descricao);
                 item.setVl_compra(vl_compra);

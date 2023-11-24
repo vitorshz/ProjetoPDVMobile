@@ -10,8 +10,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.projetopdvmobile.R;
 import com.example.projetopdvmobile.adapter.ClienteListAdapter;
@@ -22,18 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CadastroPedidoActivity extends AppCompatActivity {
-    private Button btSelectCliente;
-    private ImageButton btAddCliente;
-    private AlertDialog dialog;
-
-    private View viewAlert;
-    private Cliente clienteSelecionado;
-
-    private ClienteController clienteController;
-    private ClienteListAdapter clienteListAdapter;
-    private ArrayList<Cliente> listaClientes;
-
-    private int posCliente =0;
+    private TextView tvClienteSelecionado;
+    private AutoCompleteTextView actProduto;
+    private EditText edQtdProduto;
+    private RecyclerView rvItensCarrinho;
+    private Button btAddProduto;
+    private TextView tvValorTotalPedido;
+    private Button btFinalizarPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +39,16 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_pedido);
         setTitle("Cadastro de Pedido");
 
-    }
+
+        tvClienteSelecionado = findViewById(R.id.tvClienteSelecionado);
+        actProduto = findViewById(R.id.actProduto);
+        edQtdProduto = findViewById(R.id.edQtdProduto);
+        rvItensCarrinho = findViewById(R.id.rvItensCarrinho);
+        btAddProduto = findViewById(R.id.btAddProduto);
+        tvValorTotalPedido = findViewById(R.id.tvValorTotalPedido);
+        btFinalizarPedido = findViewById(R.id.btFinalizarPedido);
 
 
-    private void carregarClientes() {
-        listaClientes = clienteController.retornarTodosClientes();
     }
 
 

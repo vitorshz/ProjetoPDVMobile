@@ -46,7 +46,7 @@ public class ItemListAdapter extends
     @Override
     public ItemListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View listItem = inflater.inflate(R.layout.item_list_clientes,
+        View listItem = inflater.inflate(R.layout.item_list_item,
                 parent, false);
 
         return new ItemListAdapter.ViewHolder(listItem);
@@ -63,14 +63,15 @@ public class ItemListAdapter extends
     public void onBindViewHolder(@NonNull ItemListAdapter.ViewHolder holder, int position) {
         Item itemSelecionado = listaItem.get(position);
 
-        holder.tvcodigo.setText(String.valueOf(itemSelecionado.getCod_prodotu()));
-        holder.tvqtd_est.setText(itemSelecionado.getQtd_est());
+        holder.tvcodigo.setText(String.valueOf(itemSelecionado.getCod_produto()));
+        holder.tvqtd_est.setText(String.valueOf(itemSelecionado.getQtd_est()));
         holder.tvDescricao.setText(itemSelecionado.getDescricao());
-        holder.tvVl_compra.setText((int) itemSelecionado.getVl_compra());
-        holder.tvVl_venda.setText((int) itemSelecionado.getVl_venda());
 
-
+        // Convertendo os valores inteiros para String antes de definir o texto
+        holder.tvVl_compra.setText(String.valueOf(itemSelecionado.getVl_compra()));
+        holder.tvVl_venda.setText(String.valueOf(itemSelecionado.getVl_venda()));
     }
+
 
     /**
      * Retorna a quantidade de elementos contidos na lista
