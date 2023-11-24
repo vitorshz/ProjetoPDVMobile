@@ -138,7 +138,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
 
     private void atualizarValorTotalPedido(Pedido pedido) {
         // Obtemos a lista de itens do pedido
-        List<Item> itens = pedido.getListaProdutos();
+        ArrayList<Item> itens = pedido.getListaProdutos();
 
         // Inicializamos o valor total como 0.0
         double valorTotal = 0.0;
@@ -181,7 +181,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
 
                 Cliente clienteSelecionado = listaClientes.get(position);
                 // Atualizar a TextView com o nome do cliente selecionado
-                tvClienteSelecionado.setText("Cliente Selecionado: " + clienteSelecionado.getNome());
+                tvClienteSelecionado.setText(" " + clienteSelecionado.getNome());
 
                 Toast.makeText(CadastroPedidoActivity.this, "Cliente selecionado: " + clienteSelecionado.getNome(), Toast.LENGTH_SHORT).show();
 
@@ -240,6 +240,8 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         // Recuperar a quantidade do produto do EditText
         String quantidadeProdutoStr = edQtdProduto.getText().toString().trim();
 
+
+
         // Verificar se o nome do produto e a quantidade não estão vazios
         if (!nomeProduto.isEmpty() && !quantidadeProdutoStr.isEmpty()) {
             // Converter a quantidade para um valor numérico (por exemplo, inteiro)
@@ -249,6 +251,9 @@ public class CadastroPedidoActivity extends AppCompatActivity {
             Item item = new Item();
             item.setDescricao(nomeProduto);
             item.setQtd_est(quantidadeProduto);
+
+            Double valorDeVendaDoProduto = item.getVl_venda();
+            item.setVl_venda(valorDeVendaDoProduto);
 
             // Adicionar o item à lista de itens
             listaItens.add(item);

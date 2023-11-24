@@ -43,9 +43,11 @@ public class PedidoListAdapter extends RecyclerView.Adapter<PedidoListAdapter.Pe
         Pedido pedido = listaPedidos.get(position);
 
         holder.tvNumPedido.setText(String.valueOf(pedido.getNumPedido()));
+
+        // Configurar o valor total do pedido
         holder.tvVlTotal.setText(new DecimalFormat("R$ #,##0.00").format(pedido.getVlTotal()));
 
-        // Verifica se a lista de produtos do pedido não é nula
+
         if (pedido.getListaProdutos() != null && !pedido.getListaProdutos().isEmpty()) {
             // Por exemplo, pega o primeiro item da lista de produtos
             Item primeiroItem = pedido.getListaProdutos().get(0);
@@ -60,18 +62,18 @@ public class PedidoListAdapter extends RecyclerView.Adapter<PedidoListAdapter.Pe
             }
         }
 
+        // Configurar a lista de produtos do pedido
         StringBuilder produtosText = new StringBuilder("Produtos: ");
         for (Item produto : pedido.getListaProdutos()) {
             produtosText.append(produto.getDescricao()).append(", ");
             produtosText.append(produto.getVl_venda()).append(", ");
         }
-        // Remova a última vírgula e espaço
+
+        // Remover a última vírgula e espaço
         if (produtosText.length() > 2) {
             produtosText.setLength(produtosText.length() - 2);
         }
         holder.tvProdutosPedido.setText(produtosText.toString());
-
-
 
     }
 
