@@ -48,6 +48,7 @@ public class ClienteController {
                 cliente.setEmail(email);
                 cliente.setTelefone(telefone);
 
+                
                 ClienteDAO.getInstancia(context).insert(cliente);
             }
 
