@@ -84,7 +84,7 @@ public class ItemDao  implements IGenericDao<Item> {
         try {
             ContentValues valores = new ContentValues();
             valores.put(colunas[1], obj.getCod_produto()); // Corrigido para getCod_produto
-            String[] identificador = {String.valueOf(obj.getId())};
+            String[] identificador = {String.valueOf(obj.getCod_produto())};
             return baseDados.update(tabela, valores, colunas[0] + "= ?", identificador);
         } catch (SQLException ex) {
             Log.e("UNIPAR", "ERRO: ItemDao.update()" + ex.getMessage());
@@ -97,7 +97,7 @@ public class ItemDao  implements IGenericDao<Item> {
 
         try{
 
-            String[]indentificador = {String.valueOf(obj.getId())};
+            String[]indentificador = {String.valueOf(obj.getCod_produto())};
 
             return  baseDados.delete(tabela,
                     colunas[0]+ "= ?", indentificador);
@@ -118,7 +118,7 @@ public class ItemDao  implements IGenericDao<Item> {
             if (cursor.moveToFirst()) {
                 do {
                     Item item = new Item();
-                    item.setId(cursor.getInt(0));
+
                     item.setCod_produto(cursor.getInt(1));
                     item.setQtd_est(cursor.getInt(2));
                     item.setDescricao(cursor.getString(3));
@@ -147,7 +147,7 @@ public class ItemDao  implements IGenericDao<Item> {
             Cursor cursor = baseDados.query(tabela, colunas, colunas[0] + "= ?", identificador, null, null, null);
             if (cursor.moveToFirst()) {
                 Item item = new Item();
-                item.setId(cursor.getInt(0));
+
                 item.setCod_produto(cursor.getInt(1));
                 item.setQtd_est(cursor.getInt(2));
                 item.setDescricao(cursor.getString(3));

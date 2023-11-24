@@ -1,27 +1,22 @@
 package com.example.projetopdvmobile.model;
 
 public class Cliente {
-    private int id;
+
     private String cpf,nome,email,telefone;
 
     public Cliente() {
     }
 
-    public Cliente(int id, String cpf, String nome, String email, String telefone) {
-        this.id = id;
+    public Cliente( String cpf, String nome, String email, String telefone) {
+
+
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getCpf() {
         return cpf;
