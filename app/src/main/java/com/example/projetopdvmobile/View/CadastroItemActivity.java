@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.projetopdvmobile.R;
 import com.example.projetopdvmobile.adapter.ItemListAdapter;
 import com.example.projetopdvmobile.controller.ItemController;
-import com.example.projetopdvmobile.model.GerarId;
+
 import com.example.projetopdvmobile.model.Item;
 
 import java.util.ArrayList;
@@ -59,26 +59,12 @@ public class CadastroItemActivity extends AppCompatActivity {
                 salvarDados();
             }
         });
-        atualizarListaItem();
+
 
     }
     private void salvarDados(){
-        GerarId gerar = new GerarId();
-        int idanterior = 0;
 
-// Gere o primeiro ID
-        int idgerado = gerar.gerarProximoId();
-
-// Verifique se o ID gerado é o mesmo que o ID anterior
-        while (idanterior == idgerado) {
-            // Gere um novo ID
-            idgerado = gerar.gerarProximoId();
-        }
-
-// Atualize o ID anterior para o ID gerado no final do loop
-          idanterior = idgerado;
-
-        String retorno = controller.salvarItem(idgerado,
+        String retorno = controller.salvarItem(
                 edDescProduto.getText().toString(),
                 Integer.parseInt(edQtdEstq.getText().toString()),
                 Integer.parseInt(edCodBarra.getText().toString()),
@@ -86,12 +72,7 @@ public class CadastroItemActivity extends AppCompatActivity {
                 Double.parseDouble(edValorVenda.getText().toString()));
 
 
-
         if(retorno != null){
-            if(retorno.contains("ID")){
-                edCodBarra.setError(retorno);
-                edCodBarra.requestFocus();
-            }
 
             if(retorno.contains("COD_PRODOTU")){
                 edCodBarra.setError(retorno);
@@ -118,7 +99,7 @@ public class CadastroItemActivity extends AppCompatActivity {
             Toast.makeText(this,
                     "Item salvo com sucesso!",
                     Toast.LENGTH_LONG).show();
-            dialog.dismiss();
+
             atualizarListaItem();
         }
 

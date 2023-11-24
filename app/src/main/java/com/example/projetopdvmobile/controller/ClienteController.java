@@ -53,10 +53,7 @@ public class ClienteController {
         return null;
     }
 
-    /**
-     * Retorna todos os alunos cadastrados no banco
-     * @return
-     */
+
     public ArrayList<Cliente> retornarTodosClientes(){
         return ClienteDAO.getInstancia(context).getAll();
 

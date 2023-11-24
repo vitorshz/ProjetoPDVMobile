@@ -57,7 +57,7 @@ public class ItemDao  implements IGenericDao<Item> {
     public long insert(Item obj) {
         try{
             ContentValues valores = new ContentValues();
-            valores.put(colunas[0], obj.getId());
+
             valores.put(colunas[1], obj.getCod_prodotu());
             valores.put(colunas[2], obj.getQtd_est());
             valores.put(colunas[3], obj.getDescricao());
@@ -111,8 +111,6 @@ public class ItemDao  implements IGenericDao<Item> {
 
     @Override
     public ArrayList<Item> getAll() {
-
-
         ArrayList<Item> lista = new ArrayList<>();
         try{
 
@@ -172,10 +170,6 @@ public class ItemDao  implements IGenericDao<Item> {
         }
         return null;
 
-
-
-
-        return null;
 
     }
 
