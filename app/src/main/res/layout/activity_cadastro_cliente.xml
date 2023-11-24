@@ -28,11 +28,13 @@
                 android:id="@+id/edNomeCliente"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:paddingLeft="8dp"
                 android:inputType="textPersonName"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
                 android:backgroundTint="@color/gray50"
-                android:autofillHints="" />
+                android:hint="Vitin Shimizu"
+               />
 
             <TextView
                 android:layout_width="match_parent"
@@ -45,12 +47,12 @@
                 android:id="@+id/edCPFCliente"
                 android:layout_width="match_parent"
                 android:inputType="number"
-
+                android:paddingLeft="8dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
                 android:backgroundTint="@color/gray50"
-                android:autofillHints=""
+                android:hint="00000000000"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -65,10 +67,11 @@
                 android:layout_width="match_parent"
                 android:inputType="number|phone"
                 android:layout_height="48dp"
+                android:paddingLeft="8dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
                 android:backgroundTint="@color/gray50"
-                android:autofillHints=""
+                android:hint="00000000000"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -82,11 +85,12 @@
                 android:id="@+id/edEmailCliente"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:paddingLeft="8dp"
                 android:inputType="textEmailAddress"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
                 android:backgroundTint="@color/gray50"
-                android:autofillHints=""
+                android:hint="email@email.com"
                 tools:ignore="LabelFor" />
 
             <Button
