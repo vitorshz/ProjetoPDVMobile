@@ -33,8 +33,10 @@ public class ClienteController {
                 return "Informe o tel do cliente!";
             }
 
+
+
             Cliente cliente = ClienteDAO.getInstancia(context)
-                    .getById(Integer.parseInt(cpf));
+                    .getById(id);
 
             if(cliente != null){
                 return "O cpf ("+cpf+") já está cadastrado!";
@@ -48,7 +50,6 @@ public class ClienteController {
                 cliente.setEmail(email);
                 cliente.setTelefone(telefone);
 
-                
                 ClienteDAO.getInstancia(context).insert(cliente);
             }
 

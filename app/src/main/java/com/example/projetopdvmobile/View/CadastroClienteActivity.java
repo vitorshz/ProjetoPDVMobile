@@ -60,7 +60,19 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
     private void salvarDados(){
         GerarId gerar = new GerarId();
+        int idanterior = 0;
+
+// Gere o primeiro ID
         int idgerado = gerar.gerarProximoId();
+
+// Verifique se o ID gerado é o mesmo que o ID anterior
+        while (idanterior == idgerado) {
+            // Gere um novo ID
+            idgerado = gerar.gerarProximoId();
+        }
+
+// Atualize o ID anterior para o ID gerado no final do loop
+        idanterior = idgerado;
 
         String retorno = controller.salvarCliente(idgerado,edCPFCliente.getText().toString(),
                 edNomeCliente.getText().toString(),
