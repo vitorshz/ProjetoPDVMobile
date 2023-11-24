@@ -26,6 +26,7 @@ import com.example.projetopdvmobile.model.ItemVenda;
 import com.example.projetopdvmobile.model.Pedido;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PedidoDao implements IGenericDao<Pedido> {
 
@@ -86,25 +87,101 @@ public class PedidoDao implements IGenericDao<Pedido> {
 
     @Override
     public long update(Pedido obj) {
-        // Implemente conforme necessário
+        try{
+            ContentValues valores = new ContentValues();
+            valores.put(colunas[1], obj.getNumPedido());
+
+            String[]identificador = {String.valueOf(obj.getNumPedido())};
+
+            return baseDados.update(tabela,  valores,
+                    colunas[0]+"= ?", identificador);
+
+        }catch (SQLException ex){
+            Log.e("UNIPAR", "ERRO: ClienteDao.update() "+ex.getMessage());
+        }
         return 0;
     }
 
     @Override
     public long delete(Pedido obj) {
-        // Implemente conforme necessário
+        try{
+            String[]identificador = {String.valueOf(obj.getNumPedido())};
+
+            return baseDados.delete(tabela,
+                    colunas[0]+"= ?", identificador);
+        }catch (SQLException ex){
+            Log.e("UNIPAR", "ERRO: ClienteDao.delete() "+ex.getMessage());
+        }
         return 0;
     }
 
     @Override
     public ArrayList<Pedido> getAll() {
-        // Implemente conforme necessário
-        return null;
+        ArrayList<Pedido> lista = new ArrayList<>();
+        try {
+            Cursor cursor = baseDados.query(tabela,
+                    colunas, null,
+                    null, null,
+                    null, colunas[0] + " DESC");
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Pedido ped = new Pedido();
+                    ped.setNumPedido(cursor.getInt(0));
+                    ped.setDataCriacao(new Date(cursor.getLong(1)));
+                    ped.setDataEnvio(new Date(cursor.getLong(2)));
+                    ped.setEstado(cursor.getString(3));
+                    ped.setNumEnvio(cursor.getInt(4));
+
+                    // Recuperando o ID do cliente associado ao pedido
+                    int clienteId = cursor.getInt(5);
+
+                    // Agora você precisa buscar o cliente com o clienteId
+                    Cliente clienteAssociado = ClienteDAO.getInstancia(context).getById(clienteId);
+
+                    // Verifique se o cliente foi encontrado antes de definir no pedido
+                    if (clienteAssociado != null) {
+                        ped.setCliente(clienteAssociado);
+                    }
+
+                    lista.add(ped);
+                } while (cursor.moveToNext());
+            }
+
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: PedidoDao.getAll() " + ex.getMessage());
+        }
+
+        return lista;
     }
+
+
 
     @Override
     public Pedido getById(int id) {
-        // Implemente conforme necessário
+        try{
+            String[]identificador = {String.valueOf(id)};
+            Cursor cursor = baseDados.query(tabela, colunas,
+                    colunas[0]+"= ?", identificador,
+                    null, null, null);
+
+            if(cursor.moveToFirst()){
+                Pedido ped = new Pedido();
+                ped.setNumPedido(cursor.getInt(0));
+                ped.setDataCriacao(new Date(cursor.getLong(1)));
+                ped.setDataEnvio(new Date(cursor.getLong(2)));
+                ped.setEstado(cursor.getString(3));
+                ped.setNumEnvio(cursor.getInt(4));
+
+                // Recuperando o ID do cliente associado ao pedido
+                int clienteId = cursor.getInt(5);
+
+                return ped;
+            }
+
+        }catch (SQLException ex){
+            Log.e("UNIPAR", "ERRO: ClienteDao.getById() "+ex.getMessage());
+        }
         return null;
     }
 }
