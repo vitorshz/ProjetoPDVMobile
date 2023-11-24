@@ -38,6 +38,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pedido);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Cadastro de Pedido");
 
 

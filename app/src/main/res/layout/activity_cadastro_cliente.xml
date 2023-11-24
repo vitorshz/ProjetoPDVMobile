@@ -27,10 +27,12 @@
             <EditText
                 android:id="@+id/edNomeCliente"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
+                android:inputType="textPersonName"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="@color/gray50" />
+                android:backgroundTint="@color/gray50"
+                android:autofillHints="" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -42,10 +44,14 @@
             <EditText
                 android:id="@+id/edCPFCliente"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:inputType="number"
+
+                android:layout_height="48dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="@color/gray50" />
+                android:backgroundTint="@color/gray50"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -57,10 +63,13 @@
             <EditText
                 android:id="@+id/edTelefoneCliente"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:inputType="number|phone"
+                android:layout_height="48dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="@color/gray50" />
+                android:backgroundTint="@color/gray50"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,10 +81,13 @@
             <EditText
                 android:id="@+id/edEmailCliente"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
+                android:inputType="textEmailAddress"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="@color/gray50" />
+                android:backgroundTint="@color/gray50"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/btCadastrarCliente"

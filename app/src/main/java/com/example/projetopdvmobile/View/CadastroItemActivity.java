@@ -39,6 +39,7 @@ public class CadastroItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_item_venda);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Cadastro de Item");
 
 
@@ -108,6 +109,5 @@ public class CadastroItemActivity extends AppCompatActivity {
         ItemListAdapter adapter = new ItemListAdapter(listaItem, this);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
         rvItems.setAdapter(adapter);
-
     }
 }

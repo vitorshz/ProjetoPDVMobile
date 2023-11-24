@@ -12,5 +12,6 @@ public class GerenciadorPedidosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciador_pedidos);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
