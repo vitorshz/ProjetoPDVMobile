@@ -6,18 +6,17 @@ public class ItemVenda {
     private int idCarrinho;
     private int dataAdd;
     private ArrayList<ItemVenda> listaItens; // O item vendido
-    private Item item;
+
     private int quantidade; // A quantidade vendida
     private double subtotal;
 
     public ItemVenda() {
     }
 
-    public ItemVenda(int idCarrinho, int dataAdd, ArrayList<ItemVenda> listaItens, Item item, int quantidade, double subtotal) {
+    public ItemVenda(int idCarrinho, int dataAdd, ArrayList<ItemVenda> listaItens, int quantidade, double subtotal) {
         this.idCarrinho = idCarrinho;
         this.dataAdd = dataAdd;
         this.listaItens = listaItens;
-        this.item = item;
         this.quantidade = quantidade;
         this.subtotal = subtotal;
     }
@@ -46,13 +45,7 @@ public class ItemVenda {
         this.listaItens = listaItens;
     }
 
-    public Item getItem() {
-        return item;
-    }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
 
     public int getQuantidade() {
         return quantidade;
@@ -80,6 +73,10 @@ public class ItemVenda {
         listaItens.add(itemVenda);
 
         // Adicionar lógica adicional, se necessário.
+    }
+
+    private void setItem(Item item) {
+        ''
     }
 
     public void atualizarQTD(Item item, int novaQuantidade) {
