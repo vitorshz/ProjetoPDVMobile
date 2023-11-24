@@ -45,7 +45,20 @@ public class PedidoListAdapter extends RecyclerView.Adapter<PedidoListAdapter.Pe
         holder.tvNumPedido.setText(String.valueOf(pedido.getNumPedido()));
         holder.tvVlTotal.setText(new DecimalFormat("R$ #,##0.00").format(pedido.getVlTotal()));
 
+        // Verifica se a lista de produtos do pedido não é nula
+        if (pedido.getListaProdutos() != null && !pedido.getListaProdutos().isEmpty()) {
+            // Por exemplo, pega o primeiro item da lista de produtos
+            Item primeiroItem = pedido.getListaProdutos().get(0);
 
+            // Verifica se o item não é nulo
+            if (primeiroItem != null) {
+                // Agora você pode acessar o valor de venda do item
+                double valorVenda = primeiroItem.getVl_venda();
+
+                // Faça algo com o valor de venda, por exemplo, exiba em um TextView
+                holder.tvVlTotal.setText(String.valueOf(valorVenda));
+            }
+        }
 
         StringBuilder produtosText = new StringBuilder("Produtos: ");
         for (Item produto : pedido.getListaProdutos()) {
