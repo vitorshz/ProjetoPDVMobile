@@ -72,14 +72,25 @@ public class ItemDao  implements IGenericDao<Item> {
         return 0;
     }
 
+    @Override
+    public long update(Item obj) {
+        return 0;
+    }
 
+    @Override
+    public long delete(Item obj) {
+        return 0;
+    }
 
+    @Override
+    public ArrayList<Item> getAll() {
+        return null;
+    }
 
-
-
-
-
-
+    @Override
+    public Item getById(int id) {
+        return null;
+    }
 
 
 }
