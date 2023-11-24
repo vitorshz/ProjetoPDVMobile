@@ -4,22 +4,11 @@ import java.util.Date;
 
 public class Pedido {
     private int numPedido;
+    private String descricaopedido;
     private Date dataCriacao;
-    private Date dataEnvio;
-    private String estado;
-    private int numEnvio;
+    private double vlTotal ;
     private Cliente cliente;
-    private ArrayList<ItemVenda> itens;
-
-    public Pedido(int numPedido, Date dataCriacao, Cliente cliente) {
-        this.numPedido = numPedido;
-        this.dataCriacao = dataCriacao;
-        this.cliente = cliente;
-        this.itens = new ArrayList<>();
-    }
-
-    public Pedido() {
-    }
+    private ArrayList<Item>  listaProdutos;
 
     public int getNumPedido() {
         return numPedido;
@@ -27,6 +16,14 @@ public class Pedido {
 
     public void setNumPedido(int numPedido) {
         this.numPedido = numPedido;
+    }
+
+    public String getDescricaopedido() {
+        return descricaopedido;
+    }
+
+    public void setDescricaopedido(String descricaopedido) {
+        this.descricaopedido = descricaopedido;
     }
 
     public Date getDataCriacao() {
@@ -37,28 +34,12 @@ public class Pedido {
         this.dataCriacao = dataCriacao;
     }
 
-    public Date getDataEnvio() {
-        return dataEnvio;
+    public double getVlTotal() {
+        return vlTotal;
     }
 
-    public void setDataEnvio(Date dataEnvio) {
-        this.dataEnvio = dataEnvio;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public int getNumEnvio() {
-        return numEnvio;
-    }
-
-    public void setNumEnvio(int numEnvio) {
-        this.numEnvio = numEnvio;
+    public void setVlTotal(double vlTotal) {
+        this.vlTotal = vlTotal;
     }
 
     public Cliente getCliente() {
@@ -69,23 +50,21 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public ArrayList<ItemVenda> getItens() {
-        return itens;
+    public ArrayList<Item> getListaProdutos() {
+        return listaProdutos;
     }
 
-    public void setItens(ArrayList<ItemVenda> itens) {
-        this.itens = itens;
+    public void setListaProdutos(ArrayList<Item> listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
 
-    public void adicionarItem(ItemVenda item) {
-        itens.add(item);
+    public Pedido(int numPedido, String descricaopedido, Date dataCriacao, double vlTotal, Cliente cliente, ArrayList<Item> listaProdutos) {
+        this.numPedido = numPedido;
+        this.descricaopedido = descricaopedido;
+        this.dataCriacao = dataCriacao;
+        this.vlTotal = vlTotal;
+        this.cliente = cliente;
+        this.listaProdutos = listaProdutos;
     }
-
-    public void finalizarPedido() {
-        // Lógica para finalizar o pedido, gerar NFE, etc.
-        NotaFiscalEletronica nfe = new NotaFiscalEletronica(this);
-        nfe.emitirNotaFiscal();
-    }
-
-
+    public Pedido(){}
 }
