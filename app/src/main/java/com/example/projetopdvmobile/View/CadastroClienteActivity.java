@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +15,6 @@ import com.example.projetopdvmobile.R;
 import com.example.projetopdvmobile.adapter.ClienteListAdapter;
 import com.example.projetopdvmobile.controller.ClienteController;
 import com.example.projetopdvmobile.model.Cliente;
-import com.example.projetopdvmobile.model.GerarId;
 
 import java.util.ArrayList;
 
@@ -58,42 +54,41 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
     }
 
-    private void salvarDados(){
-        GerarId gerar = new GerarId();
-        int idgerado = gerar.gerarProximoId();
+    private void salvarDados() {
 
-        String retorno = controller.salvarCliente(idgerado,edCPFCliente.getText().toString(),
+        String retorno = controller.salvarCliente(edCPFCliente.getText().toString(),
                 edNomeCliente.getText().toString(),
                 edEmailCliente.getText().toString(),
                 edTelefoneCliente.getText().toString());
 
-        if(retorno != null){
-            if(retorno.contains("CPF")){
+        if (retorno != null) {
+
+            if (retorno.contains("CPF")) {
                 edCPFCliente.setError(retorno);
                 edCPFCliente.requestFocus();
             }
-            if(retorno.contains("NOME")){
+            if (retorno.contains("NOME")) {
                 edNomeCliente.setError(retorno);
                 edNomeCliente.requestFocus();
             }
-            if(retorno.contains("TELEFONE")){
+            if (retorno.contains("TELEFONE")) {
                 edTelefoneCliente.setError(retorno);
                 edTelefoneCliente.requestFocus();
             }
-            if(retorno.contains("EMAIL")){
+            if (retorno.contains("EMAIL")) {
                 edEmailCliente.setError(retorno);
                 edEmailCliente.requestFocus();
             }
 
-        }else{
+        } else {
             Toast.makeText(this,
                     "Cliente salvo com sucesso!",
                     Toast.LENGTH_LONG).show();
-            dialog.dismiss();
             atualizarListaCliente();
         }
 
     }
+
     private void atualizarListaCliente() {
         ArrayList<Cliente> listaClientes = controller.retornarTodosClientes();
         ClienteListAdapter adapter = new ClienteListAdapter(listaClientes, this);

@@ -87,7 +87,7 @@ public class ClienteListAdapter extends
         public TextView tvNome;
         public TextView tvEmail;
         public TextView tvTelefone;
-        public ImageButton btAddCliente;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -95,7 +95,7 @@ public class ClienteListAdapter extends
             this.tvNome = itemView.findViewById(R.id.tvNome);
             this.tvEmail = itemView.findViewById(R.id.tvEmail);
             this.tvTelefone = itemView.findViewById(R.id.tvTelefone);
-            this.btAddCliente = itemView.findViewById(R.id.btAddCliente);
+
         }
     }
 

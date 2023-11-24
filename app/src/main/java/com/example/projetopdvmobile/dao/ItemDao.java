@@ -25,6 +25,7 @@ public class ItemDao  implements IGenericDao<Item> {
 
     private String[]colunas = {"ID", "COD_PRODOTU" , "QTD_EST", "DESCRICAO", "VL_COMPRA", "VL_VENDA"};
 
+
     private String tabela = "ITEM";
 
     private Context context;
@@ -74,6 +75,7 @@ public class ItemDao  implements IGenericDao<Item> {
 
     @Override
     public long update(Item obj) {
+
         try{
             ContentValues valores = new ContentValues();
             valores.put(colunas[1], obj.getId());
@@ -86,11 +88,13 @@ public class ItemDao  implements IGenericDao<Item> {
         }catch (SQLException ex){
             Log.e("UNIPAR", "ERRO: ItemDao.udapte()"+ex.getMessage());
         }
+
         return 0;
     }
 
     @Override
     public long delete(Item obj) {
+
         try{
 
             String[]indentificador = {String.valueOf(obj.getId())};
@@ -101,11 +105,13 @@ public class ItemDao  implements IGenericDao<Item> {
         }catch (SQLException ex){
             Log.e("UNIPAR", "ERRO: ItemDao.delete()"+ex.getMessage());
         }
+
         return 0;
     }
 
     @Override
     public ArrayList<Item> getAll() {
+
 
         ArrayList<Item> lista = new ArrayList<>();
         try{
@@ -133,11 +139,13 @@ public class ItemDao  implements IGenericDao<Item> {
             Log.e("UNIPAR", "ERRO: ItemDao.getAll()"+ex.getMessage());
         }
 
+
         return null;
     }
 
     @Override
     public Item getById(int id) {
+
 
         try{
             String[] indetificador = {String.valueOf(id)};
@@ -165,6 +173,9 @@ public class ItemDao  implements IGenericDao<Item> {
         return null;
 
 
+
+
+        return null;
 
     }
 

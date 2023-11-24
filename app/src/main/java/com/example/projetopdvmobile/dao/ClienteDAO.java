@@ -50,14 +50,13 @@ public class ClienteDAO implements IGenericDao<Cliente> {
         //instanciando a base de dados
         baseDados = openHelper.getWritableDatabase();
 
-
     }
 
     @Override
     public long insert(Cliente obj) {
         try{
             ContentValues valores = new ContentValues();
-            valores.put(colunas[0], obj.getId());
+
             valores.put(colunas[1], obj.getCpf()); //
             valores.put(colunas[2], obj.getNome()); //
             valores.put(colunas[3], obj.getEmail()); //
@@ -114,7 +113,7 @@ public class ClienteDAO implements IGenericDao<Cliente> {
             if(cursor.moveToFirst()){
                 do{
                     Cliente cliente = new Cliente();
-                    cliente.setId(cursor.getInt(0));
+
                     cliente.setCpf(cursor.getString(1));
                     cliente.setNome(cursor.getString(2));
                     cliente.setEmail(cursor.getString(3));
@@ -156,4 +155,36 @@ public class ClienteDAO implements IGenericDao<Cliente> {
         }
         return null;
     }
+
+    public Cliente getByCpf(String cpf) {
+        try {
+            String[] identificador = {cpf};
+            Cursor cursor = baseDados.query(tabela, colunas,
+                    colunas[1] + " = ?", identificador,
+                    null, null, null);
+
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(cursor.getInt(0));
+                    cliente.setCpf(cursor.getString(1));
+                    cliente.setNome(cursor.getString(2));
+                    cliente.setEmail(cursor.getString(3));
+                    cliente.setTelefone(cursor.getString(4));
+
+                    return cliente;
+                }
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+
+        } catch (SQLException ex) {
+            Log.e("UNIPAR", "ERRO: ClienteDao.getByCpf() " + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }

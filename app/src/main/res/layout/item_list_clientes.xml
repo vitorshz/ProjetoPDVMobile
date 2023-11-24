@@ -38,13 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:id="@+id/tvTelefone"/>
-            <ImageButton
-                android:id="@+id/btAddCliente"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="#4CAF50"
-                android:src="@drawable/ic_add"/>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -4,7 +4,6 @@ public class Item {
 
     private int id, cod_prodotu, qtd_est;
     private String descricao;
-
     private double vl_compra, vl_venda;
 
     public Item() {

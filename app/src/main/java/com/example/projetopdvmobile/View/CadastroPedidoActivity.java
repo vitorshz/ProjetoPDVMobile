@@ -41,7 +41,6 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_pedido);
         setTitle("Cadastro de Pedido");
 
-
     }
 
 
