@@ -62,6 +62,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
         GerarId gerar = new GerarId();
         int idanterior = 0;
 
+<<<<<<< Updated upstream
 // Gere o primeiro ID
         int idgerado = gerar.gerarProximoId();
 
@@ -75,6 +76,9 @@ public class CadastroClienteActivity extends AppCompatActivity {
         idanterior = idgerado;
 
         String retorno = controller.salvarCliente(idgerado,edCPFCliente.getText().toString(),
+=======
+        String retorno = controller.salvarCliente(edCPFCliente.getText().toString(),
+>>>>>>> Stashed changes
                 edNomeCliente.getText().toString(),
                 edEmailCliente.getText().toString(),
                 edTelefoneCliente.getText().toString());
