@@ -15,11 +15,9 @@ public class ClienteController {
         this.context = context;
     }
 
-    public String salvarCliente(int id,String cpf, String nome, String email, String telefone){
+    public String salvarCliente(String cpf, String nome, String email, String telefone){
         try{
-            if(id==0 || id==(id-1)){
-                return "Informe o ID do Cliente!";
-            }
+
             if(cpf.equals("") || cpf.isEmpty()){
                 return "Informe o Cpf do Cliente!";
             }
@@ -33,24 +31,20 @@ public class ClienteController {
                 return "Informe o tel do cliente!";
             }
 
+            // Verificar se o CPF já está cadastrado
+            Cliente clienteExistente = ClienteDAO.getInstancia(context).getByCpf(cpf);
 
+            if (clienteExistente != null) {
+                return "O CPF (" + cpf + ") já está cadastrado!";
+            } else {
+                // Cliente não existe, pode ser inserido
+                Cliente novoCliente = new Cliente();
+                novoCliente.setCpf(cpf);
+                novoCliente.setNome(nome);
+                novoCliente.setEmail(email);
+                novoCliente.setTelefone(telefone);
 
-            Cliente cliente = ClienteDAO.getInstancia(context)
-                    .getById(id);
-
-            if(cliente != null){
-                return "O cpf ("+cpf+") já está cadastrado!";
-            }else{
-
-
-                cliente = new Cliente();
-                cliente.setId(id);
-                cliente.setCpf(cpf);
-                cliente.setNome(nome);
-                cliente.setEmail(email);
-                cliente.setTelefone(telefone);
-
-                ClienteDAO.getInstancia(context).insert(cliente);
+                ClienteDAO.getInstancia(context).insert(novoCliente);
             }
 
         }catch (Exception ex){
